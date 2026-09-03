@@ -9,3 +9,14 @@ class Repuesto:
         self.marca = marca
         self.precio = precio
         self.stock = stock
+
+class InventarioService:
+    def __init__(self):
+        self._almacen = {}
+
+    def registrar_repuesto(self, repuesto: Repuesto):
+        self._almacen[repuesto.codigo] = repuesto
+        return True
+
+    def buscar_por_codigo(self, codigo: str):
+        return self._almacen.get(codigo, None)
