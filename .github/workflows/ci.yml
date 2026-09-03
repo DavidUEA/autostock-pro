@@ -1,0 +1,20 @@
+name: CI AutoStock Pro
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  verificacion-inicial:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Comprobar ejecucion
+        run: echo "Pipeline ejecutado correctamente"
